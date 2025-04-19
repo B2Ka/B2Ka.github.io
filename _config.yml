@@ -30,6 +30,41 @@
     })(window,document,'script','dataLayer','GTM-NGQFVCWC');
   </script>
   <!-- End Google Tag Manager -->
+
+  <script>
+    function sendAPIRequest() {
+      const dataLayer = window.dataLayer || [];
+      let latestData = {};
+
+      // Loop through the dataLayer to find the custom data object
+      for (let i = dataLayer.length - 1; i >= 0; i--) {
+        const entry = dataLayer[i];
+        if (typeof entry === 'object' && !entry['gtm.start']) {
+          latestData = entry;
+          break;
+        }
+      }
+
+      const [key, value] = Object.entries(latestData)[0] || [];
+
+      if (!key || !value) {
+        console.log('No valid key-value found in dataLayer.');
+        return;
+      }
+
+      const apiUrl = `https://httpbin.org/get?${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+      console.log('Sending GET request to:', apiUrl);
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          console.log('API Response:', data);
+        })
+        .catch(error => {
+          console.error('API Request Failed:', error);
+        });
+    }
+  </script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -45,5 +80,6 @@
   <p>The content of the body element is displayed in the browser window.</p>
   <p>The content of the title element is displayed in the browser tab, in favorites and in search-engine results.</p>
 
+  <button onclick="sendAPIRequest()">Send GET Request</button>
 </body>
 </html>
