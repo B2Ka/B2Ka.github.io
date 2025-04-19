@@ -1,4 +1,3 @@
-# B2Ka.github.io
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,13 +85,11 @@
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <h1># B2Ka.github.io</h1>
-  <h2># My Impact Test</h2>
+  <h1>B2Ka.github.io</h1>
+  <h2>My Impact Test</h2>
 
-  <p>The content of the body element is displayed in the browser window.</p>
-  <p>The content of the title element is displayed in the browser tab, in favorites and in search-engine results.</p>
+  <p>This content is displayed in the browser window.</p>
 
-  <!-- The button -->
   <button onclick="sendAPIRequest()">Send GET Request</button>
 </body>
 </html>
