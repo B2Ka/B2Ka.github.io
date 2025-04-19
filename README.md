@@ -92,7 +92,7 @@
   <p>The content of the body element is displayed in the browser window.</p>
   <p>The content of the title element is displayed in the browser tab, in favorites and in search-engine results.</p>
 
-  <!-- ✅ Here's your button -->
+  <!-- The button -->
   <button onclick="sendAPIRequest()">Send GET Request</button>
 </body>
 </html>
