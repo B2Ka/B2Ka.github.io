@@ -3,7 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> A Meaningful Page Title</title>
+  <title>A Meaningful Page Title</title>
+
+  <!-- Push query parameters to dataLayer -->
+  <script>
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const key = urlParams.get('key');
+      const value = urlParams.get('value');
+
+      window.dataLayer = window.dataLayer || [];
+      if (key && value) {
+        let data = {};
+        data[key] = value;
+        window.dataLayer.push(data);
+      }
+    })();
+  </script>
 
   <!-- Google Tag Manager -->
   <script>
